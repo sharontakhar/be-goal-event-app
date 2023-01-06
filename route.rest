@@ -1,0 +1,16 @@
+GET http://localhost:8008/goals
+
+###
+
+GET http://localhost:8008/goals/1234
+
+###
+POST http://localhost:8080/goals
+Content-Type:application/json
+
+{
+    "title" : "birthday drinks" , 
+    "start": "2023-01-27"
+}
+
+###

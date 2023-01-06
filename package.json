@@ -1,0 +1,17 @@
+{
+  "name": "backend-goal-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.8.2",
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "devStart": "nodemom index.js"
+  }
+}
