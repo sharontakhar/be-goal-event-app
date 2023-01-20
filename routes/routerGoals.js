@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Goals = require("../models/modelGoals");
+const fetchGoals = require("./dbController");
 
 //getting all goals
 router.get("/", async (req, res) => {
@@ -12,28 +13,17 @@ router.get("/", async (req, res) => {
   }
 });
 
-//creating one goal
 router.post("/goals", async (req, res) => {
-  const goals = new Goals({
-    title: req.body.title,
-    start: req.body.start,
-  });
   try {
-    const newGoals = await goals.save();
-    res.status(201).json(newGoals);
+    const newEvent = new Goals({
+      title: req.body.title,
+    });
+
+    res.status(201).json(newEvent);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400);
+    console.log(err);
   }
 });
-
-//delete goal
-// router.delete("/:id", async (req, res) => {
-//   try {
-//     await res.goals.remove();
-//     res.json({ message: "Deleted Goals" });
-//   } catch (err) {
-//     res.status(500).json({ message: "Deleted Goal/event" });
-//   }
-// });
 
 module.exports = router;
