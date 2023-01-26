@@ -1,9 +1,7 @@
-const mongoose = require("mongoose");
-
-const goalsSchema = new mongoose.Schema({
+const goalsSchema = new Schema({
   id: { type: Number, required: false },
   title: { type: String, required: true },
-  start: { type: Date, required: true, default: Date.now },
+  start: { type: Date, required: false, default: Date.now },
 });
 
-module.exports = mongoose.model("Goals", goalsSchema);
+module.exports = ("Goals", goalsSchema);

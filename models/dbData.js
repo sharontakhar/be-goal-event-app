@@ -7,3 +7,13 @@ exports.fetchGoals = () => {
     return JSON.parse(response);
   });
 };
+
+exports.createGoal = async (newGoal) => {
+  const records = JSON.parse(await fs.readFile("./db.json", "utf-8"));
+
+  records.goals.push(newGoal);
+
+  await fs.writeFile("./db.json", JSON.stringify(records), "utf-8");
+
+  return newGoal;
+};
